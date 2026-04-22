@@ -27,6 +27,7 @@ export function Sidebar() {
         <div className="relative">
             {/* Mobile Toggle Button */}
             <button
+            style={{padding:4,cursor:"pointer"}}
                 onClick={() => setIsOpen(!isOpen)}
                 className={`fixed top-4 z-50 lg:hidden p-3 rounded-xl bg-[var(--card)]/80 backdrop-blur-sm border border-[var(--border)] hover:bg-[var(--card)] transition-all duration-300 hover:shadow-lg hover:shadow-black/20 ${isOpen ? 'left-72 opacity-0 pointer-events-none' : 'left-4 opacity-100'
                     }`}

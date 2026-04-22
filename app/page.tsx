@@ -99,12 +99,12 @@ const pricingTiers = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0f0f1a] text-white flex flex-col">
-      
+
       {/* HERO */}
       <section className="pt-32 pb-20 px-6 text-center">
         <div className="max-w-5xl mx-auto">
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-blue-500/10 border border-blue-500/30 rounded-full">
+          <div style={{ paddingLeft: 6, paddingRight: 6, paddingTop: 4, paddingBottom: 4, marginTop: 12, marginBottom: 8 }} className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-blue-500/10 border border-blue-500/30 rounded-full">
             <Sparkles className="w-4 h-4 text-blue-400" />
             <span className="text-sm text-blue-300">Welcome to the future</span>
           </div>
@@ -113,12 +113,13 @@ export default function Home() {
             NexusAI
           </h1>
 
-          <p className="text-gray-400 text-xl mb-10">
+          <p style={{ marginBottom: 12 }} className="text-gray-400 text-xl mb-10">
             Experience next-gen AI conversations in one platform
           </p>
 
-          <div className="flex justify-center gap-4 flex-wrap">
+          <div style={{marginBottom:12}} className="flex justify-center gap-4 flex-wrap">
             <Link
+              style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 6, paddingBottom: 6 }}
               href="/chat"
               className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg"
             >
@@ -126,7 +127,9 @@ export default function Home() {
               <ArrowRight className="w-4 h-4" />
             </Link>
 
-            <button className="px-6 py-3 border border-gray-600 rounded-lg hover:border-blue-500">
+            <button
+              style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 6, paddingBottom: 6 }}
+              className="px-6 py-3 border border-gray-600 rounded-lg hover:border-blue-500">
               Watch Demo
             </button>
           </div>
@@ -135,11 +138,12 @@ export default function Home() {
 
       {/* FEATURES */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+        <div style={{marginLeft:8,marginRight:8}} className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
           {features.map((f, i) => {
             const Icon = f.icon;
             return (
               <div
+               style={{padding:8}}
                 key={i}
                 className="p-6 bg-gray-900 rounded-xl border border-gray-800 hover:border-blue-500"
               >
@@ -153,16 +157,16 @@ export default function Home() {
       </section>
 
       {/* PRICING */}
-      <section className="py-20 px-6">
+      <section style={{marginTop:18,marginLeft:8,marginRight:8}} className="py-20 px-6">
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
           {pricingTiers.map((tier, i) => (
             <div
+            style={{padding:8}}
               key={i}
-              className={`p-6 rounded-xl border ${
-                tier.highlighted
+              className={`p-6 rounded-xl border ${tier.highlighted
                   ? "border-blue-500 bg-blue-500/10"
                   : "border-gray-800"
-              }`}
+                }`}
             >
               <h3 className="text-xl font-bold">{tier.name}</h3>
               <p className="text-gray-400 text-sm mb-4">
@@ -194,11 +198,12 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="text-center py-20 px-6">
+      <section style={{marginTop:8}} className="text-center py-20 px-6">
         <h2 className="text-3xl font-bold mb-4">
           Ready to start?
         </h2>
         <Link
+        style={{paddingLeft:8,paddingRight:8,paddingTop:4,paddingBottom:4,marginTop:8,marginBottom:8}}
           href="/chat"
           className="inline-block px-6 py-3 bg-blue-600 rounded-lg"
         >
@@ -207,9 +212,9 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="mt-auto border-t border-gray-800 py-6 text-center text-gray-400 text-sm">
-        © 2024 NexusAI
+      <footer style={{marginBottom:58,paddingTop:8}} className="mt-auto border-t border-gray-800 py-6 text-center text-gray-400 text-sm">
+        © 2026 NexusAI
       </footer>
     </div>
-  );
+  )
 }
