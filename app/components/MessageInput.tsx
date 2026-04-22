@@ -7,7 +7,7 @@ export function MessageInput() {
     const [input, setInput] = useState('');
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 lg:left-64 px-4 py-4 bg-gradient-to-t from-[var(--background)] to-[var(--background)]/80 backdrop-blur-sm">
+        <div  className="fixed bottom-0 left-0 right-0 lg:left-64 px-4 py-4 bg-gradient-to-t from-[var(--background)] to-[var(--background)]/80 backdrop-blur-sm">
             <div className="max-w-4xl mx-auto">
                 <div className="flex items-center gap-3 px-4 py-3 bg-[var(--card)] border border-[var(--border)] rounded-xl focus-within:border-[var(--primary)] transition-colors">
                     <button className="p-2 hover:bg-[var(--border)] rounded-lg transition-colors text-gray-400 hover:text-gray-200">

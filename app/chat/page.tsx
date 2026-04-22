@@ -110,7 +110,7 @@ export default function ChatPage() {
     return (
         <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="flex flex-col h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e] transition-all duration-300 lg:ml-72">
             {/* Header */}
-            <header className="sticky top-0 h-16 border-b border-gray-700/50 flex items-center justify-between px-6 lg:ml-72 bg-gray-900/80 backdrop-blur-md z-30 transition-all duration-300 ease-in-out">
+            <header style={{ paddingLeft: 8, paddingRight: 8 }} className="sticky top-0 h-16 border-b border-gray-700/50 flex items-center justify-between px-6 lg:ml-72 bg-gray-900/80 backdrop-blur-md z-30 transition-all duration-300 ease-in-out">
                 <div className="hidden lg:block">
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
@@ -120,7 +120,7 @@ export default function ChatPage() {
                     </div>
                 </div>
                 <div className="flex items-center gap-4">
-                    <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full">
+                    <div style={{ paddingLeft: 4, paddingRight: 8 }} className="hidden sm:flex items-center gap-2 px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full">
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                         <span className="text-xs text-green-400 font-medium">Online</span>
                     </div>
@@ -129,62 +129,64 @@ export default function ChatPage() {
             </header>
 
             {/* Messages Area */}
-            <main className="flex-1 overflow-y-auto lg:ml-72 pt-6 pb-32 transition-all duration-300 ease-in-out">
-                <div className="max-w-4xl mx-auto px-4 py-6">
-                    {/* Welcome Message */}
-                    <div className="text-center mb-8">
-                        <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-2xl mb-4">
-                            <Sparkles className="w-5 h-5 text-blue-400" />
-                            <span className="text-blue-300 font-medium">Welcome to NexusAI</span>
-                        </div>
-                        <p className="text-gray-400 text-sm">Start a conversation with our AI assistant</p>
-                    </div>
-
-                    {/* Messages */}
-                    <div className="space-y-6">
-                        {sampleMessages.map((msg, idx) => (
-                            <div key={idx} className="animate-fade-in">
-                                <MessageBubble role={msg.role} content={msg.content} />
-                                <div className={`flex items-center gap-2 mt-2 text-xs text-gray-500 ${msg.role === 'user' ? 'justify-end' : 'justify-start'
-                                    }`}>
-                                    {msg.role === 'user' ? (
-                                        <>
-                                            <span>{msg.timestamp}</span>
-                                            <User className="w-3 h-3" />
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Bot className="w-3 h-3" />
-                                            <span>{msg.timestamp}</span>
-                                        </>
-                                    )}
-                                </div>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <main  className="flex-1 overflow-y-auto lg:ml-72 pt-6 pb-32 transition-all duration-300 ease-in-out">
+                    <div className="max-w-4xl mx-auto px-4 py-6">
+                        {/* Welcome Message */}
+                        <div className="text-center mb-8">
+                            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-2xl mb-4">
+                                <Sparkles className="w-5 h-5 text-blue-400" />
+                                <span className="text-blue-300 font-medium">Welcome to NexusAI</span>
                             </div>
-                        ))}
+                            <p className="text-gray-400 text-sm">Start a conversation with our AI assistant</p>
+                        </div>
 
-                        {/* Typing Indicator */}
-                        {isTyping && (
-                            <div className="flex justify-start animate-fade-in">
-                                <div className="bg-gray-800/50 border border-gray-700/50 text-gray-200 px-4 py-3 rounded-lg rounded-bl-none max-w-xs">
-                                    <div className="flex items-center gap-1">
-                                        <div className="flex gap-1">
-                                            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-                                            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                                            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                                        </div>
-                                        <span className="text-sm text-gray-400 ml-2">AI is typing...</span>
+                        {/* Messages */}
+                        <div className="space-y-6">
+                            {sampleMessages.map((msg, idx) => (
+                                <div key={idx} className="animate-fade-in">
+                                    <MessageBubble role={msg.role} content={msg.content} />
+                                    <div className={`flex items-center gap-2 mt-2 text-xs text-gray-500 ${msg.role === 'user' ? 'justify-end' : 'justify-start'
+                                        }`}>
+                                        {msg.role === 'user' ? (
+                                            <>
+                                                <span>{msg.timestamp}</span>
+                                                <User className="w-3 h-3" />
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Bot className="w-3 h-3" />
+                                                <span>{msg.timestamp}</span>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
-                            </div>
-                        )}
+                            ))}
+
+                            {/* Typing Indicator */}
+                            {isTyping && (
+                                <div className="flex justify-start animate-fade-in">
+                                    <div className="bg-gray-800/50 border border-gray-700/50 text-gray-200 px-4 py-3 rounded-lg rounded-bl-none max-w-xs">
+                                        <div className="flex items-center gap-1">
+                                            <div className="flex gap-1">
+                                                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+                                                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                                                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                                            </div>
+                                            <span className="text-sm text-gray-400 ml-2">AI is typing...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        <div ref={messagesEndRef} />
                     </div>
+                </main>
 
-                    <div ref={messagesEndRef} />
-                </div>
-            </main>
-
-            {/* Message Input */}
-            <MessageInput />
+                {/* Message Input */}
+                <MessageInput />
+            </div>
         </div>
     );
 }

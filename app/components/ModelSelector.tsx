@@ -45,6 +45,7 @@ export function ModelSelector() {
     return (
         <div className="relative">
             <button
+            style={{paddingLeft:8,paddingRight:4}}
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center gap-2 px-4 py-2 bg-[var(--card)] border border-[var(--border)] rounded-lg hover:bg-[var(--card)]/80 transition-colors"
             >
@@ -69,6 +70,7 @@ export function ModelSelector() {
                                 </div>
                                 {group.models.map((model) => (
                                     <button
+                                        style={{paddingLeft:8,paddingRight:4}}
                                         key={model.value}
                                         onClick={() => {
                                             setSelected(model);
