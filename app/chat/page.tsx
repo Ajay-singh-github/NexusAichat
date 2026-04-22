@@ -24,24 +24,13 @@ const sampleMessages = [
                 <p className="mb-4 text-gray-200">
                     Great question! Here are the key differences between React hooks and class components:
                 </p>
-                <div className="space-y-3">
-                    <div className="bg-gray-800/50 p-4 rounded-lg border-l-4 border-blue-500">
-                        <h4 className="font-semibold text-blue-300 mb-2">📝 Syntax</h4>
-                        <p className="text-sm text-gray-300">Hooks use functional components, while class components use ES6 classes</p>
-                    </div>
-                    <div className="bg-gray-800/50 p-4 rounded-lg border-l-4 border-purple-500">
-                        <h4 className="font-semibold text-purple-300 mb-2">⚡ State Management</h4>
-                        <p className="text-sm text-gray-300">Hooks use useState, classes use this.state and this.setState</p>
-                    </div>
-                    <div className="bg-gray-800/50 p-4 rounded-lg border-l-4 border-green-500">
-                        <h4 className="font-semibold text-green-300 mb-2">🔄 Side Effects</h4>
-                        <p className="text-sm text-gray-300">Hooks use useEffect, classes use lifecycle methods (componentDidMount, etc.)</p>
-                    </div>
-                    <div className="bg-gray-800/50 p-4 rounded-lg border-l-4 border-yellow-500">
-                        <h4 className="font-semibold text-yellow-300 mb-2">🔧 Code Reusability</h4>
-                        <p className="text-sm text-gray-300">Hooks make it easier to share logic between components</p>
-                    </div>
-                </div>
+
+                <ul className="list-disc pl-5 text-gray-300 space-y-2">
+                    <li>Hooks allow you to use state and lifecycle features in functional components.</li>
+                    <li>Class components use lifecycle methods like componentDidMount.</li>
+                    <li>Hooks make code cleaner and easier to reuse.</li>
+                    <li>Less boilerplate compared to classes.</li>
+                </ul>
             </div>
         ),
         timestamp: '10:31 AM',
@@ -59,28 +48,23 @@ const sampleMessages = [
                     <Bot className="w-5 h-5 text-blue-400" />
                     <span className="text-sm text-blue-400 font-medium">NexusAI Assistant</span>
                 </div>
-                <p className="mb-4 text-gray-200">Absolutely! Here's a simple counter example using useState:</p>
+
+                <p className="mb-4 text-gray-200">
+                    Absolutely! Here's a simple counter example using useState:
+                </p>
+
                 <div className="bg-gray-900 p-4 rounded-lg border border-gray-700 mb-4">
-                    <div className="flex items-center gap-2 mb-3">
-                        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                        <span className="text-xs text-gray-400 ml-2">Counter.jsx</span>
-                    </div>
                     <pre className="text-sm overflow-x-auto">
                         <code className="text-green-400">
-                            {`import { useState } from 'react';
+{`import { useState } from 'react';
 
 function Counter() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="text-center">
-      <p className="text-2xl mb-4">Count: {count}</p>
-      <button
-        onClick={() => setCount(count + 1)}
-        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded"
-      >
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
         Increment
       </button>
     </div>
@@ -89,12 +73,113 @@ function Counter() {
                         </code>
                     </pre>
                 </div>
+
                 <p className="text-sm text-gray-400 italic">
-                    💡 The first element of the array is the current state, the second is the function to update it.
+                    💡 useState returns current state + updater function
                 </p>
             </div>
         ),
         timestamp: '10:33 AM',
+    },
+
+    // 👇 NEW MESSAGES (extended chat)
+
+    {
+        role: 'user' as const,
+        content: 'Nice! What about useEffect? When should I use it?',
+        timestamp: '10:34 AM',
+    },
+    {
+        role: 'assistant' as const,
+        content: (
+            <div>
+                <div className="flex items-center gap-2 mb-4">
+                    <Bot className="w-5 h-5 text-blue-400" />
+                    <span className="text-sm text-blue-400 font-medium">NexusAI Assistant</span>
+                </div>
+
+                <p className="mb-4 text-gray-200">
+                    useEffect is used for handling side effects like API calls, subscriptions, or DOM updates.
+                </p>
+
+                <ul className="list-disc pl-5 text-gray-300 space-y-2">
+                    <li>Fetching data from API</li>
+                    <li>Listening to events</li>
+                    <li>Updating document title</li>
+                </ul>
+
+                <p className="mt-4 text-gray-400 text-sm">
+                    It runs after render and depends on dependency array.
+                </p>
+            </div>
+        ),
+        timestamp: '10:35 AM',
+    },
+    {
+        role: 'user' as const,
+        content: 'Got it! Can you give me a real-world example?',
+        timestamp: '10:36 AM',
+    },
+    {
+        role: 'assistant' as const,
+        content: (
+            <div>
+                <div className="flex items-center gap-2 mb-4">
+                    <Bot className="w-5 h-5 text-blue-400" />
+                    <span className="text-sm text-blue-400 font-medium">NexusAI Assistant</span>
+                </div>
+
+                <p className="mb-4 text-gray-200">
+                    Sure! Here's an example of fetching data from an API:
+                </p>
+
+                <div className="bg-gray-900 p-4 rounded-lg border border-gray-700 mb-4">
+                    <pre className="text-sm overflow-x-auto">
+                        <code className="text-green-400">
+{`import { useEffect, useState } from 'react';
+
+function Users() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('https://api.example.com/users')
+      .then(res => res.json())
+      .then(data => setUsers(data));
+  }, []);
+
+  return <div>{users.length} users loaded</div>;
+}`}
+                        </code>
+                    </pre>
+                </div>
+
+                <p className="text-sm text-gray-400 italic">
+                    💡 Empty dependency array means it runs only once (on mount)
+                </p>
+            </div>
+        ),
+        timestamp: '10:37 AM',
+    },
+    {
+        role: 'user' as const,
+        content: 'Awesome! Thanks, this really helped 🙌',
+        timestamp: '10:38 AM',
+    },
+    {
+        role: 'assistant' as const,
+        content: (
+            <div>
+                <div className="flex items-center gap-2 mb-2">
+                    <Bot className="w-5 h-5 text-blue-400" />
+                    <span className="text-sm text-blue-400 font-medium">NexusAI Assistant</span>
+                </div>
+
+                <p className="text-gray-200">
+                    You're welcome! 😊 Feel free to ask anytime. Happy coding 🚀
+                </p>
+            </div>
+        ),
+        timestamp: '10:38 AM',
     },
 ];
 
@@ -142,7 +227,7 @@ export default function ChatPage() {
                         </div>
 
                         {/* Messages */}
-                        <div className="space-y-6">
+                        <div className="space-y-6" style={{paddingBottom:100}}>
                             {sampleMessages.map((msg, idx) => (
                                 <div key={idx} className="animate-fade-in">
                                     <MessageBubble role={msg.role} content={msg.content} />
