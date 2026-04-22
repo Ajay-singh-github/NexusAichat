@@ -260,17 +260,14 @@ export default function DashboardPage() {
     strokeWidth={2}
     dot={{ fill: 'var(--primary)' }}
 />
-                                </LineChart >
-                            </ResponsiveContainer >
-                        </div >
-
+     
     {/* Pie Chart */ }
     < div className = "p-6 bg-[var(--card)] border border-[var(--border)] rounded-lg" >
                             <h2 className="text-lg font-semibold text-white mb-4">Model Usage</h2>
                             <ResponsiveContainer width="100%" height={300}>
                                 <PieChart>
                                     <Pie
-                                        data={modelUsage}
+                                        // data={modelUsage}
                                         cx="50%"
                                         cy="50%"
                                         labelLine={false}
@@ -279,9 +276,9 @@ export default function DashboardPage() {
                                         fill="#8884d8"
                                         dataKey="value"
                                     >
-                                        {modelUsage.map((_, index) => (
+                                        {/* {modelUsage.map((_, index) => (
                                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                                        ))}
+                                        ))} */}
                                     </Pie>
                                     <Tooltip
                                         contentStyle={{
@@ -294,35 +291,3 @@ export default function DashboardPage() {
                                 </PieChart>
                             </ResponsiveContainer>
                         </div >
-                    </div >
-
-    {/* Recent Activity */ }
-    < div className = "p-6 bg-[var(--card)] border border-[var(--border)] rounded-lg" >
-                        <h2 className="text-lg font-semibold text-white mb-4">Recent Activity</h2>
-                        <div className="space-y-3">
-                            {recentActivity.map((activity) => (
-                                <div
-                                    key={activity.id}
-                                    className="flex items-center justify-between p-4 bg-[var(--sidebar)] border border-[var(--border)] rounded-lg hover:border-[var(--primary)] transition-colors"
-                                >
-                                    <div className="flex-1">
-                                        <p className="font-medium text-white">{activity.action}</p>
-                                        <p className="text-sm text-gray-400 mt-1">{activity.time}</p>
-                                    </div>
-                                    <div className="text-right">
-                                        <p className="text-sm font-medium text-[var(--primary)]">
-                                            {activity.tokens} tokens
-                                        </p>
-                                        <span className="inline-block px-2 py-1 mt-1 text-xs font-medium bg-green-500/20 text-green-400 rounded">
-                                            {activity.status}
-                                        </span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div >
-                </div >
-            </div >
-        </div >
-    );
-}
