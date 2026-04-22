@@ -2,14 +2,16 @@
 
 import { useState } from 'react';
 import { Send, Paperclip, Mic } from 'lucide-react';
+import { useSidebar } from '@/context/SidebarContext';
 
 export function MessageInput() {
     const [input, setInput] = useState('');
+    const { isOpen } = useSidebar();
 
     return (
-        <div  className="fixed bottom-0 left-0 right-0 lg:left-64 px-4 py-4 bg-gradient-to-t from-[var(--background)] to-[var(--background)]/80 backdrop-blur-sm">
-            <div className="max-w-4xl mx-auto">
-                <div className="flex items-center gap-3 px-4 py-3 bg-[var(--card)] border border-[var(--border)] rounded-xl focus-within:border-[var(--primary)] transition-colors">
+        <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="fixed bottom-0 left-0 right-0 px-4 py-4 bg-gradient-to-t from-[var(--background)] to-[var(--background)]/80 backdrop-blur-sm flex justify-center transition-all duration-300">
+            <div className="max-w-4xl w-full">
+                <div style={{ marginBottom: 24, paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 8 }} className="flex items-center gap-3 px-4 py-3 bg-[var(--card)] border border-[var(--border)] rounded-xl focus-within:border-[var(--primary)] transition-colors">
                     <button className="p-2 hover:bg-[var(--border)] rounded-lg transition-colors text-gray-400 hover:text-gray-200">
                         <Paperclip className="w-5 h-5" />
                     </button>

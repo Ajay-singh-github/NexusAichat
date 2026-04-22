@@ -18,7 +18,7 @@ export function MessageBubble({ role, content }: MessageBubbleProps) {
                         : 'bg-[var(--card)] border border-[var(--border)] text-gray-100 rounded-bl-none'
                     }`}
             >
-                <div className="text-sm leading-relaxed">{content}</div>
+                <div style={{paddingLeft:4,paddingRight:4}} className="text-sm leading-relaxed">{content}</div>
             </div>
         </div>
     );

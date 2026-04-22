@@ -110,7 +110,7 @@ export default function ChatPage() {
     return (
         <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="flex flex-col h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e] transition-all duration-300 lg:ml-72">
             {/* Header */}
-            <header style={{ paddingLeft: 8, paddingRight: 8 }} className="sticky top-0 h-16 border-b border-gray-700/50 flex items-center justify-between px-6 lg:ml-72 bg-gray-900/80 backdrop-blur-md z-30 transition-all duration-300 ease-in-out">
+            <header style={{ paddingLeft: 8, paddingRight: 8 }} className="sticky top-0 h-16 border-b border-gray-700/50 flex items-center justify-between px-6 bg-gray-900/80 backdrop-blur-md z-30 transition-all duration-300 ease-in-out">
                 <div className="hidden lg:block">
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
@@ -129,12 +129,12 @@ export default function ChatPage() {
             </header>
 
             {/* Messages Area */}
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                <main  className="flex-1 overflow-y-auto lg:ml-72 pt-6 pb-32 transition-all duration-300 ease-in-out">
-                    <div className="max-w-4xl mx-auto px-4 py-6">
+            <div className="flex-1 flex flex-col items-center w-full">
+                <main className="flex-1 overflow-y-auto pt-6 pb-32 transition-all duration-300 ease-in-out w-full flex flex-col items-center">
+                    <div className="max-w-4xl mx-auto px-4 py-6 w-full">
                         {/* Welcome Message */}
-                        <div className="text-center mb-8">
-                            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-2xl mb-4">
+                        <div style={{ marginBottom: 16 }} className="text-center mb-8">
+                            <div style={{ paddingLeft: 4, paddingRight: 8, paddingTop: 2, paddingBottom: 2, marginTop: 16, marginBottom: 8 }} className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-2xl mb-4">
                                 <Sparkles className="w-5 h-5 text-blue-400" />
                                 <span className="text-blue-300 font-medium">Welcome to NexusAI</span>
                             </div>
@@ -183,10 +183,10 @@ export default function ChatPage() {
                         <div ref={messagesEndRef} />
                     </div>
                 </main>
-
-                {/* Message Input */}
-                <MessageInput />
             </div>
+
+            {/* Fixed Message Input */}
+            <MessageInput />
         </div>
     );
 }
