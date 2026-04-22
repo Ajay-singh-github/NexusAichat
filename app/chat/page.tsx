@@ -106,9 +106,9 @@ export default function ChatPage() {
     }, []);
 
     return (
-        <div className="flex flex-col h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e]">
+        <div style={{}} className="flex flex-col h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e]">
             {/* Header */}
-            <header className="sticky top-0 h-16 border-b border-gray-700/50 flex items-center justify-between px-6 lg:ml-72 bg-gray-900/80 backdrop-blur-md z-30">
+            <header className="sticky top-0 h-16 border-b border-gray-700/50 flex items-center justify-between px-6 lg:ml-72 bg-gray-900/80 backdrop-blur-md z-30 transition-all duration-300 ease-in-out">
                 <div className="hidden lg:block">
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
@@ -127,7 +127,7 @@ export default function ChatPage() {
             </header>
 
             {/* Messages Area */}
-            <main className="flex-1 overflow-y-auto lg:ml-72 pt-6 pb-32">
+            <main className="flex-1 overflow-y-auto lg:ml-72 pt-6 pb-32 transition-all duration-300 ease-in-out">
                 <div className="max-w-4xl mx-auto px-4 py-6">
                     {/* Welcome Message */}
                     <div className="text-center mb-8">

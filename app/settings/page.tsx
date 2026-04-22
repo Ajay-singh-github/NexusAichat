@@ -63,9 +63,9 @@ export default function SettingsPage() {
     };
 
     return (
-        <div className="flex flex-col h-screen bg-[var(--background)] lg:ml-72">
+        <div className="flex flex-col h-screen bg-[var(--background)] lg:ml-72 transition-all duration-300 ease-in-out">
             {/* Header */}
-            <header className="sticky top-0 h-16 border-b border-[var(--border)] flex items-center px-6 bg-[var(--background)]/80 backdrop-blur-sm z-30">
+            <header className="sticky top-0 h-16 border-b border-[var(--border)] flex items-center px-6 bg-[var(--background)]/80 backdrop-blur-sm z-30 transition-all duration-300">
                 <h1 className="text-2xl font-bold text-white">Settings</h1>
             </header>
 

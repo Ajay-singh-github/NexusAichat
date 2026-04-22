@@ -58,12 +58,12 @@ export function Sidebar() {
                 </div>
 
                 {/* New Chat Button */}
-                <div className="p-4" style={{ marginLeft: 8, marginRight: 8, marginTop: 8 }}>
+                <Link href="/chat" className="p-4" style={{ marginLeft: 8, marginRight: 8, marginTop: 8 }}>
                     <button style={{ paddingTop: 8, paddingBottom: 8 }} className="w-full flex items-center justify-center gap-3 px-4 py-3.5 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 hover:from-blue-500 hover:via-purple-500 hover:to-cyan-500 rounded-xl font-semibold text-white transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25 transform hover:scale-[1.02] hover:-translate-y-0.5">
                         <Plus className="w-5 h-5" />
                         <span>New Chat</span>
                     </button>
-                </div>
+                </Link>
 
                 {/* Search */}
                 <div className="px-4" style={{ marginTop: 8, marginBottom: 8 }}>

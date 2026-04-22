@@ -95,7 +95,7 @@ const stats = [
 
 export default function DashboardPage() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e] lg:ml-72">
+        <div className="min-h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e] lg:ml-72 transition-all duration-300 ease-in-out">
             <div className="p-6 lg:p-8">
                 {/* Header */}
                 <div className="mb-8">
@@ -260,34 +260,34 @@ export default function DashboardPage() {
     strokeWidth={2}
     dot={{ fill: 'var(--primary)' }}
 />
-     
-    {/* Pie Chart */ }
-    < div className = "p-6 bg-[var(--card)] border border-[var(--border)] rounded-lg" >
-                            <h2 className="text-lg font-semibold text-white mb-4">Model Usage</h2>
-                            <ResponsiveContainer width="100%" height={300}>
-                                <PieChart>
-                                    <Pie
-                                        // data={modelUsage}
-                                        cx="50%"
-                                        cy="50%"
-                                        labelLine={false}
-                                        label={({ name, value }) => `${name}: ${value}%`}
-                                        outerRadius={80}
-                                        fill="#8884d8"
-                                        dataKey="value"
-                                    >
-                                        {/* {modelUsage.map((_, index) => (
+
+{/* Pie Chart */ }
+< div className="p-6 bg-[var(--card)] border border-[var(--border)] rounded-lg" >
+    <h2 className="text-lg font-semibold text-white mb-4">Model Usage</h2>
+    <ResponsiveContainer width="100%" height={300}>
+        <PieChart>
+            <Pie
+                // data={modelUsage}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={({ name, value }) => `${name}: ${value}%`}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+            >
+                {/* {modelUsage.map((_, index) => (
                                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                         ))} */}
-                                    </Pie>
-                                    <Tooltip
-                                        contentStyle={{
-                                            backgroundColor: 'var(--sidebar)',
-                                            border: '1px solid var(--border)',
-                                            borderRadius: '8px',
-                                        }}
-                                        labelStyle={{ color: 'var(--foreground)' }}
-                                    />
-                                </PieChart>
-                            </ResponsiveContainer>
-                        </div >
+            </Pie>
+            <Tooltip
+                contentStyle={{
+                    backgroundColor: 'var(--sidebar)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '8px',
+                }}
+                labelStyle={{ color: 'var(--foreground)' }}
+            />
+        </PieChart>
+    </ResponsiveContainer>
+</div >
