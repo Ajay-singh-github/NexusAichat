@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NexusAI - Advanced AI Chat Application
 
-## Getting Started
+A modern, feature-rich AI chat application built with Next.js 14, React 19, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install && npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to explore NexusAI.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Chat Interface** - ChatGPT-style interface with collapsible sidebar and 5+ conversation history
+- **Model Selection** - Dropdown with 8 AI models grouped by category (Chat/Image/Code)
+- **Settings Page** - Profile, API key management, appearance customization with 3 tabs
+- **Dashboard** - Analytics with token usage charts, model distribution pie chart, recent activity
+- **Fully Responsive** - Tested on 375px mobile to 1440px desktop
+- **Dark Theme** - Blue/purple gradient aesthetic with smooth transitions
+- **Reusable Components** - Proper React patterns with hooks and state management
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+Next.js 16 (App Router) • React 19 • TypeScript • Tailwind CSS 4 • Lucide Icons • Recharts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+✅ **Chat** - Message bubbles, model selector, file attachment, mic icon  
+✅ **Settings** - Profile editor, API key masking, appearance options  
+✅ **Dashboard** - Revenue metrics, line chart, pie chart, activity log  
+✅ **Landing** - Hero section, 6 features grid, 3 pricing tiers, footer
 
-## Deploy on Vercel
+## Design Highlights
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Sidebar collapses on mobile with overlay
+- Pre-filled conversation showing realistic AI interaction
+- API keys display with visibility toggle
+- Recharts integration for dashboard analytics
+- Smooth animations and hover effects

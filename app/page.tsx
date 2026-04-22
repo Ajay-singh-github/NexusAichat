@@ -1,65 +1,215 @@
-import Image from "next/image";
+import Link from "next/link";
+import {
+  MessageSquare,
+  Zap,
+  Brain,
+  Lock,
+  BarChart3,
+  Smartphone,
+  Sparkles,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
+
+const features = [
+  {
+    icon: MessageSquare,
+    title: "Advanced Chat Interface",
+    description: "Seamless conversation experience with multiple AI models",
+    gradient: "from-blue-500 to-cyan-500",
+  },
+  {
+    icon: Zap,
+    title: "Lightning Fast",
+    description: "Optimized for speed with instant response times",
+    gradient: "from-yellow-500 to-orange-500",
+  },
+  {
+    icon: Brain,
+    title: "AI Powered",
+    description: "Access to GPT-4, Claude 3, Gemini, and more models",
+    gradient: "from-purple-500 to-pink-500",
+  },
+  {
+    icon: Lock,
+    title: "Secure & Private",
+    description: "Your conversations are encrypted and never shared",
+    gradient: "from-green-500 to-emerald-500",
+  },
+  {
+    icon: BarChart3,
+    title: "Analytics Dashboard",
+    description: "Track your usage and AI model performance",
+    gradient: "from-indigo-500 to-blue-500",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Responsive",
+    description: "Works perfectly on all devices and screen sizes",
+    gradient: "from-teal-500 to-cyan-500",
+  },
+];
+
+const pricingTiers = [
+  {
+    name: "Starter",
+    price: "$9",
+    period: "/month",
+    description: "Perfect for individuals",
+    features: [
+      "10,000 tokens/month",
+      "Access to GPT-3.5 & Claude 2",
+      "1 API Key",
+      "Email support",
+    ],
+    cta: "Get Started",
+    highlighted: false,
+  },
+  {
+    name: "Professional",
+    price: "$29",
+    period: "/month",
+    description: "Best for professionals",
+    features: [
+      "100,000 tokens/month",
+      "Access to all models including GPT-4",
+      "5 API Keys",
+      "Priority support",
+      "Advanced analytics",
+    ],
+    cta: "Start Free Trial",
+    highlighted: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    period: "",
+    description: "For large organizations",
+    features: [
+      "Unlimited tokens",
+      "All models + custom integration",
+      "Unlimited API Keys",
+      "24/7 support",
+    ],
+    cta: "Contact Sales",
+    highlighted: false,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-[#0f0f1a] text-white flex flex-col">
+      
+      {/* HERO */}
+      <section className="pt-32 pb-20 px-6 text-center">
+        <div className="max-w-5xl mx-auto">
+
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-blue-500/10 border border-blue-500/30 rounded-full">
+            <Sparkles className="w-4 h-4 text-blue-400" />
+            <span className="text-sm text-blue-300">Welcome to the future</span>
+          </div>
+
+          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            NexusAI
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="text-gray-400 text-xl mb-10">
+            Experience next-gen AI conversations in one platform
           </p>
+
+          <div className="flex justify-center gap-4 flex-wrap">
+            <Link
+              href="/chat"
+              className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg"
+            >
+              Start Chat
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <button className="px-6 py-3 border border-gray-600 rounded-lg hover:border-blue-500">
+              Watch Demo
+            </button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* FEATURES */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+          {features.map((f, i) => {
+            const Icon = f.icon;
+            return (
+              <div
+                key={i}
+                className="p-6 bg-gray-900 rounded-xl border border-gray-800 hover:border-blue-500"
+              >
+                <Icon className="w-6 h-6 mb-4 text-blue-400" />
+                <h3 className="font-bold mb-2">{f.title}</h3>
+                <p className="text-gray-400 text-sm">{f.description}</p>
+              </div>
+            );
+          })}
         </div>
-      </main>
+      </section>
+
+      {/* PRICING */}
+      <section className="py-20 px-6">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+          {pricingTiers.map((tier, i) => (
+            <div
+              key={i}
+              className={`p-6 rounded-xl border ${
+                tier.highlighted
+                  ? "border-blue-500 bg-blue-500/10"
+                  : "border-gray-800"
+              }`}
+            >
+              <h3 className="text-xl font-bold">{tier.name}</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                {tier.description}
+              </p>
+
+              <div className="text-3xl font-bold mb-6">
+                {tier.price}{" "}
+                <span className="text-sm text-gray-400">
+                  {tier.period}
+                </span>
+              </div>
+
+              <button className="w-full mb-6 py-2 bg-blue-600 rounded-lg">
+                {tier.cta}
+              </button>
+
+              <ul className="space-y-2 text-sm">
+                {tier.features.map((f, idx) => (
+                  <li key={idx} className="flex gap-2 items-center">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="text-center py-20 px-6">
+        <h2 className="text-3xl font-bold mb-4">
+          Ready to start?
+        </h2>
+        <Link
+          href="/chat"
+          className="inline-block px-6 py-3 bg-blue-600 rounded-lg"
+        >
+          Get Started
+        </Link>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="mt-auto border-t border-gray-800 py-6 text-center text-gray-400 text-sm">
+        © 2024 NexusAI
+      </footer>
     </div>
   );
 }
