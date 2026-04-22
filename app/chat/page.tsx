@@ -5,6 +5,7 @@ import { MessageInput } from '@/components/MessageInput';
 import { ModelSelector } from '@/components/ModelSelector';
 import { useRef, useEffect, useState } from 'react';
 import { Sparkles, Bot, User } from 'lucide-react';
+import { useSidebar } from '@/context/SidebarContext';
 
 const sampleMessages = [
     {
@@ -100,13 +101,14 @@ function Counter() {
 export default function ChatPage() {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const [isTyping, setIsTyping] = useState(false);
+    const { isOpen } = useSidebar();
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, []);
 
     return (
-        <div style={{}} className="flex flex-col h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e]">
+        <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="flex flex-col h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e] transition-all duration-300 lg:ml-72">
             {/* Header */}
             <header className="sticky top-0 h-16 border-b border-gray-700/50 flex items-center justify-between px-6 lg:ml-72 bg-gray-900/80 backdrop-blur-md z-30 transition-all duration-300 ease-in-out">
                 <div className="hidden lg:block">

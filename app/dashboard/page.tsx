@@ -2,6 +2,7 @@
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar } from 'recharts';
 import { TrendingUp, Users, MessageSquare, Zap, Activity, Clock, Calendar, Target } from 'lucide-react';
+import { useSidebar } from '@/context/SidebarContext';
 
 const usageData = [
     { name: 'Mon', tokens: 2400, conversations: 12 },
@@ -94,8 +95,10 @@ const stats = [
 ];
 
 export default function DashboardPage() {
+    const { isOpen } = useSidebar();
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e] lg:ml-72 transition-all duration-300 ease-in-out">
+        <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="min-h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e] transition-all duration-300 lg:ml-72">
             <div className="p-6 lg:p-8">
                 {/* Header */}
                 <div className="mb-8">

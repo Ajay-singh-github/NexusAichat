@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Save, Copy, Eye, EyeOff, Trash2 } from 'lucide-react';
+import { useSidebar } from '@/context/SidebarContext';
 
 interface ApiKey {
     id: string;
@@ -37,6 +38,7 @@ export default function SettingsPage() {
     const [fontSize, setFontSize] = useState(16);
     const [density, setDensity] = useState<'compact' | 'comfortable'>('comfortable');
     const [darkMode, setDarkMode] = useState(true);
+    const { isOpen } = useSidebar();
 
     const maskKey = (key: string) => {
         const visible = key.substring(0, 7);
@@ -63,7 +65,7 @@ export default function SettingsPage() {
     };
 
     return (
-        <div className="flex flex-col h-screen bg-[var(--background)] lg:ml-72 transition-all duration-300 ease-in-out">
+        <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="flex flex-col h-screen bg-[var(--background)] transition-all duration-300 lg:ml-72">
             {/* Header */}
             <header className="sticky top-0 h-16 border-b border-[var(--border)] flex items-center px-6 bg-[var(--background)]/80 backdrop-blur-sm z-30 transition-all duration-300">
                 <h1 className="text-2xl font-bold text-white">Settings</h1>

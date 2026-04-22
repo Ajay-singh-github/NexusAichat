@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu, Plus, MessageSquare, Settings, BarChart3, X, Home, Search, MoreVertical, Trash2, Edit3 } from 'lucide-react';
+import { useSidebar } from '@/context/SidebarContext';
 
 const conversations = [
     { id: 1, title: 'React Performance Tips', date: 'Today', model: 'GPT-4', messages: 12 },
@@ -14,7 +15,7 @@ const conversations = [
 ];
 
 export function Sidebar() {
-    const [isOpen, setIsOpen] = useState(true);
+    const { isOpen, setIsOpen } = useSidebar();
     const [searchQuery, setSearchQuery] = useState('');
     const pathname = usePathname();
 
