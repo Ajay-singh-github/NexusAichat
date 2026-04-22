@@ -101,28 +101,29 @@ export default function DashboardPage() {
         <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="min-h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e] transition-all duration-300 lg:ml-72">
             <div className="p-6 lg:p-8">
                 {/* Header */}
-                <div className="mb-8">
+                <div className="mb-8" style={{paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:8}}>
                     <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
                     <p className="text-gray-400">Welcome back! Here's your AI usage overview.</p>
                 </div>
 
                 {/* Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div style={{paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:8}} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {stats.map((stat, idx) => {
                         const Icon = stat.icon;
                         return (
                             <div
+                               style={{padding:8}}
                                 key={idx}
                                 className="group relative p-6 bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 rounded-2xl hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 transform hover:scale-105"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="relative">
-                                    <div className={`inline-flex p-3 bg-gradient-to-br ${stat.gradient} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                                    <div style={{padding:4}} className={`inline-flex p-3 bg-gradient-to-br ${stat.gradient} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
                                         <Icon className="w-6 h-6 text-white" />
                                     </div>
                                     <div className="flex items-center justify-between mb-2">
                                         <h3 className="text-sm font-medium text-gray-400">{stat.title}</h3>
-                                        <span className={`text-xs font-semibold px-2 py-1 rounded-full ${stat.changeType === 'positive'
+                                        <span style={{paddingLeft:4,paddingRight:6,paddingTop:2,paddingBottom:2}} className={`text-xs font-semibold px-2 py-1 rounded-full ${stat.changeType === 'positive'
                                             ? 'bg-green-500/20 text-green-400'
                                             : 'bg-red-500/20 text-red-400'
                                             }`}>
@@ -137,9 +138,9 @@ export default function DashboardPage() {
                 </div>
 
                 {/* Charts Row */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div style={{marginLeft:8,marginRight:8,marginBottom:8}} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                     {/* Usage Chart */}
-                    <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 rounded-2xl p-6">
+                    <div style={{padding:8}} className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 rounded-2xl p-6">
                         <div className="flex items-center justify-between mb-6">
                             <h3 className="text-xl font-bold text-white">Weekly Usage</h3>
                             <div className="flex items-center gap-2 px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full">
@@ -173,7 +174,7 @@ export default function DashboardPage() {
                     </div>
 
                     {/* Model Usage Pie Chart */}
-                    <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 rounded-2xl p-6">
+                    <div style={{padding:8}} className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 rounded-2xl p-6">
                         <h3 className="text-xl font-bold text-white mb-6">Model Distribution</h3>
                         <ResponsiveContainer width="100%" height={300}>
                             <PieChart>
@@ -215,7 +216,7 @@ export default function DashboardPage() {
                 </div>
 
                 {/* Recent Activity */}
-                <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 rounded-2xl p-6">
+                <div style={{marginLeft:8,marginRight:8,padding:8}} className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 rounded-2xl p-6">
                     <div className="flex items-center justify-between mb-6">
                         <h3 className="text-xl font-bold text-white">Recent Activity</h3>
                         <button className="text-sm text-blue-400 hover:text-blue-300 transition-colors">
@@ -225,6 +226,7 @@ export default function DashboardPage() {
                     <div className="space-y-4">
                         {recentActivity.map((activity) => (
                             <div
+                              style={{padding:4,marginBottom:4}}
                                 key={activity.id}
                                 className="flex items-center justify-between p-4 bg-gray-800/30 border border-gray-700/30 rounded-lg hover:bg-gray-800/50 transition-colors"
                             >
