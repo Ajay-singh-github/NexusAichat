@@ -1,104 +1,15 @@
 import Link from "next/link";
 import {
-  MessageSquare,
-  Zap,
-  Brain,
-  Lock,
-  BarChart3,
-  Smartphone,
   Sparkles,
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
-
-const features = [
-  {
-    icon: MessageSquare,
-    title: "Advanced Chat Interface",
-    description: "Seamless conversation experience with multiple AI models",
-    gradient: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: Zap,
-    title: "Lightning Fast",
-    description: "Optimized for speed with instant response times",
-    gradient: "from-yellow-500 to-orange-500",
-  },
-  {
-    icon: Brain,
-    title: "AI Powered",
-    description: "Access to GPT-4, Claude 3, Gemini, and more models",
-    gradient: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: Lock,
-    title: "Secure & Private",
-    description: "Your conversations are encrypted and never shared",
-    gradient: "from-green-500 to-emerald-500",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics Dashboard",
-    description: "Track your usage and AI model performance",
-    gradient: "from-indigo-500 to-blue-500",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile Responsive",
-    description: "Works perfectly on all devices and screen sizes",
-    gradient: "from-teal-500 to-cyan-500",
-  },
-];
-
-const pricingTiers = [
-  {
-    name: "Starter",
-    price: "$9",
-    period: "/month",
-    description: "Perfect for individuals",
-    features: [
-      "10,000 tokens/month",
-      "Access to GPT-3.5 & Claude 2",
-      "1 API Key",
-      "Email support",
-    ],
-    cta: "Get Started",
-    highlighted: false,
-  },
-  {
-    name: "Professional",
-    price: "$29",
-    period: "/month",
-    description: "Best for professionals",
-    features: [
-      "100,000 tokens/month",
-      "Access to all models including GPT-4",
-      "5 API Keys",
-      "Priority support",
-      "Advanced analytics",
-    ],
-    cta: "Start Free Trial",
-    highlighted: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "For large organizations",
-    features: [
-      "Unlimited tokens",
-      "All models + custom integration",
-      "Unlimited API Keys",
-      "24/7 support",
-    ],
-    cta: "Contact Sales",
-    highlighted: false,
-  },
-];
+// import { features, pricingTiers } from "@/app/data/landingData";
+import {features, pricingTiers} from "./data/landingData";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0f0f1a] text-white flex flex-col">
+    <div style={{ display: "flex", justifyContent: "center", alignItems: 'center' }} className="min-h-screen bg-[#0f0f1a] text-white flex flex-col">
 
       {/* HERO */}
       <section className="pt-32 pb-20 px-6 text-center">
@@ -117,7 +28,7 @@ export default function Home() {
             Experience next-gen AI conversations in one platform
           </p>
 
-          <div style={{marginBottom:12}} className="flex justify-center gap-4 flex-wrap">
+          <div style={{ marginBottom: 24 }} className="flex justify-center gap-4 flex-wrap">
             <Link
               style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 6, paddingBottom: 6 }}
               href="/chat"
@@ -138,12 +49,12 @@ export default function Home() {
 
       {/* FEATURES */}
       <section className="py-20 px-6">
-        <div style={{marginLeft:8,marginRight:8}} className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+        <div style={{ marginLeft: 8, marginRight: 8 }} className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
           {features.map((f, i) => {
             const Icon = f.icon;
             return (
               <div
-               style={{padding:8}}
+                style={{ padding: 12, cursor: "pointer" }}
                 key={i}
                 className="p-6 bg-gray-900 rounded-xl border border-gray-800 hover:border-blue-500"
               >
@@ -157,15 +68,15 @@ export default function Home() {
       </section>
 
       {/* PRICING */}
-      <section style={{marginTop:18,marginLeft:8,marginRight:8}} className="py-20 px-6">
+      <section style={{ marginTop: 18, marginLeft: 8, marginRight: 8 }} className="py-20 px-6">
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
           {pricingTiers.map((tier, i) => (
             <div
-            style={{padding:8}}
+              style={{ padding: 8 }}
               key={i}
               className={`p-6 rounded-xl border ${tier.highlighted
-                  ? "border-blue-500 bg-blue-500/10"
-                  : "border-gray-800"
+                ? "border-blue-500 bg-blue-500/10"
+                : "border-gray-800"
                 }`}
             >
               <h3 className="text-xl font-bold">{tier.name}</h3>
@@ -180,13 +91,13 @@ export default function Home() {
                 </span>
               </div>
 
-              <button className="w-full mb-6 py-2 bg-blue-600 rounded-lg">
+              <button style={{marginTop:4,marginBottom:8,paddingLeft:4,paddingRight:4,paddingTop:4,paddingBottom:4,cursor:"pointer"}} className="w-full mb-6 py-2 bg-blue-600 rounded-lg">
                 {tier.cta}
               </button>
 
               <ul className="space-y-2 text-sm">
                 {tier.features.map((f, idx) => (
-                  <li key={idx} className="flex gap-2 items-center">
+                  <li style={{marginTop:8}} key={idx} className="flex gap-2 items-center">
                     <CheckCircle className="w-4 h-4 text-green-400" />
                     {f}
                   </li>
@@ -198,12 +109,12 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section style={{marginTop:8}} className="text-center py-20 px-6">
+      <section style={{ marginTop: 8 }} className="text-center py-20 px-6">
         <h2 className="text-3xl font-bold mb-4">
           Ready to start?
         </h2>
         <Link
-        style={{paddingLeft:8,paddingRight:8,paddingTop:4,paddingBottom:4,marginTop:8,marginBottom:8}}
+          style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 4, paddingBottom: 4, marginTop: 8, marginBottom: 8 }}
           href="/chat"
           className="inline-block px-6 py-3 bg-blue-600 rounded-lg"
         >
@@ -212,7 +123,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{marginBottom:58,paddingTop:8}} className="mt-auto border-t border-gray-800 py-6 text-center text-gray-400 text-sm">
+      <footer style={{ marginBottom: 58, paddingTop: 8 }} className="mt-auto border-t border-gray-800 py-6 text-center text-gray-400 text-sm">
         © 2026 NexusAI
       </footer>
     </div>
