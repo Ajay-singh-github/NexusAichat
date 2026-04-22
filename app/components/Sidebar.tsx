@@ -144,15 +144,15 @@ export function Sidebar() {
                     </div>
 
                     {filteredConversations.length === 0 && searchQuery && (
-                        <div className="text-center py-8">
-                            <Search className="w-8 h-8 text-gray-500 mx-auto mb-2" />
+                        <div className="text-center py-8" style={{marginTop:20}}>
+                            {/* <Search className=" text-gray-500 mx-auto mb-2" /> */}
                             <p className="text-sm text-gray-500">No conversations found</p>
                         </div>
                     )}
                 </div>
 
                 {/* Navigation Links */}
-                <div className="border-t border-[var(--border)]/50 p-4 space-y-1">
+                <div style={{marginLeft:8,marginRight:8}} className="border-t border-[var(--border)]/50 p-4 space-y-1">
                     {/* <Link
                         href="/"
                         className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${pathname === '/'
@@ -166,7 +166,7 @@ export function Sidebar() {
 
                     <Link
                         href="/chat"
-                        style={{marginTop:8}}
+                        style={{marginTop:8,paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:8}}
                         className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${pathname === '/chat'
                             ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-400 border border-blue-500/30'
                             : 'text-gray-400 hover:bg-[var(--card)]/60 hover:text-gray-300'
@@ -178,7 +178,7 @@ export function Sidebar() {
 
                     <Link
                         href="/dashboard"
-                        style={{marginTop:8}}
+                        style={{marginTop:8,paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:8}}
                         className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${pathname === '/dashboard'
                             ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-400 border border-blue-500/30'
                             : 'text-gray-400 hover:bg-[var(--card)]/60 hover:text-gray-300'
@@ -190,7 +190,7 @@ export function Sidebar() {
 
                     <Link
                         href="/settings"
-                        style={{marginTop:8}}
+                        style={{marginTop:8,paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:8}}
                         className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${pathname === '/settings'
                             ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-400 border border-blue-500/30'
                             : 'text-gray-400 hover:bg-[var(--card)]/60 hover:text-gray-300'
@@ -202,7 +202,7 @@ export function Sidebar() {
                 </div>
 
                 {/* User Profile Section */}
-                <div style={{marginTop:8}} className="border-t border-[var(--border)]/50 p-4">
+                <div style={{marginTop:8,marginLeft:8,marginRight:8,marginBottom:8}} className="border-t border-[var(--border)]/50 p-4">
                     <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--card)]/30 hover:bg-[var(--card)]/50 transition-all duration-200 cursor-pointer group">
                         <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
                             <span className="text-white font-semibold text-sm">U</span>
