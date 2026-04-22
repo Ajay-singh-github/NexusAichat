@@ -56,7 +56,7 @@ const sampleMessages = [
                 <div className="bg-gray-900 p-4 rounded-lg border border-gray-700 mb-4">
                     <pre className="text-sm overflow-x-auto">
                         <code className="text-green-400">
-{`import { useState } from 'react';
+                            {`import { useState } from 'react';
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -136,7 +136,7 @@ function Counter() {
                 <div className="bg-gray-900 p-4 rounded-lg border border-gray-700 mb-4">
                     <pre className="text-sm overflow-x-auto">
                         <code className="text-green-400">
-{`import { useEffect, useState } from 'react';
+                            {`import { useEffect, useState } from 'react';
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -216,7 +216,7 @@ export default function ChatPage() {
             {/* Messages Area */}
             <div className="flex-1 flex flex-col items-center w-full bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e]">
                 <main className="flex-1 overflow-y-auto pt-6 pb-32 transition-all duration-300 ease-in-out w-full flex flex-col items-center">
-                    <div className="max-w-4xl mx-auto px-4 py-6 w-full">
+                    <div className="max-w-4xl mx-auto px-6 py-6 w-full sm:px-4">
                         {/* Welcome Message */}
                         <div style={{ marginBottom: 16 }} className="text-center mb-8">
                             <div style={{ paddingLeft: 4, paddingRight: 8, paddingTop: 2, paddingBottom: 2, marginTop: 16, marginBottom: 8 }} className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-2xl mb-4">
@@ -227,7 +227,7 @@ export default function ChatPage() {
                         </div>
 
                         {/* Messages */}
-                        <div className="space-y-6" style={{paddingBottom:100}}>
+                        <div className="space-y-6" style={{ paddingBottom: 100 }}>
                             {sampleMessages.map((msg, idx) => (
                                 <div key={idx} className="animate-fade-in">
                                     <MessageBubble role={msg.role} content={msg.content} />
