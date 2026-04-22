@@ -108,7 +108,7 @@ export default function ChatPage() {
     }, []);
 
     return (
-        <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="flex flex-col h-screen bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e] transition-all duration-300 lg:ml-72">
+        <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="flex flex-col min-h-screen transition-all duration-300 lg:ml-72">
             {/* Header */}
             <header style={{ paddingLeft: 8, paddingRight: 8 }} className="sticky top-0 h-16 border-b border-gray-700/50 flex items-center justify-between px-6 bg-gray-900/80 backdrop-blur-md z-30 transition-all duration-300 ease-in-out">
                 <div className="hidden lg:block">
@@ -129,7 +129,7 @@ export default function ChatPage() {
             </header>
 
             {/* Messages Area */}
-            <div className="flex-1 flex flex-col items-center w-full">
+            <div className="flex-1 flex flex-col items-center w-full bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#16213e]">
                 <main className="flex-1 overflow-y-auto pt-6 pb-32 transition-all duration-300 ease-in-out w-full flex flex-col items-center">
                     <div className="max-w-4xl mx-auto px-4 py-6 w-full">
                         {/* Welcome Message */}

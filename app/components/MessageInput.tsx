@@ -9,7 +9,7 @@ export function MessageInput() {
     const { isOpen } = useSidebar();
 
     return (
-        <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="fixed bottom-0 left-0 right-0 px-4 py-4 bg-gradient-to-t from-[var(--background)] to-[var(--background)]/80 backdrop-blur-sm flex justify-center transition-all duration-300">
+        <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="fixed bottom-0 left-0 right-0 px-4 py-4 bg-gradient-to-b from-transparent to-[#0f0f1a] flex justify-center transition-all duration-300">
             <div className="max-w-4xl w-full">
                 <div style={{ marginBottom: 24, paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 8 }} className="flex items-center gap-3 px-4 py-3 bg-[var(--card)] border border-[var(--border)] rounded-xl focus-within:border-[var(--primary)] transition-colors">
                     <button className="p-2 hover:bg-[var(--border)] rounded-lg transition-colors text-gray-400 hover:text-gray-200">
@@ -28,7 +28,7 @@ export function MessageInput() {
                         <Mic className="w-5 h-5" />
                     </button>
 
-                    <button className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg transition-all hover:shadow-lg hover:shadow-purple-500/20 text-white">
+                    <button style={{padding:4}} className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg transition-all hover:shadow-lg hover:shadow-purple-500/20 text-white">
                         <Send className="w-5 h-5" />
                     </button>
                 </div>
