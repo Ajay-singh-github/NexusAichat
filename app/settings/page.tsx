@@ -67,7 +67,7 @@ export default function SettingsPage() {
     return (
         <div style={{ marginLeft: isOpen ? '288px' : '0' }} className="flex flex-col h-screen bg-[var(--background)] transition-all duration-300 lg:ml-72">
             {/* Header */}
-            <header className="sticky top-0 h-16 border-b border-[var(--border)] flex items-center px-6 bg-[var(--background)]/80 backdrop-blur-sm z-30 transition-all duration-300">
+            <header style={{ paddingLeft: 8 }} className="sticky top-0 h-16 border-b border-[var(--border)] flex items-center px-6 bg-[var(--background)]/80 backdrop-blur-sm z-30 transition-all duration-300">
                 <h1 className="text-2xl font-bold text-white">Settings</h1>
             </header>
 
@@ -75,9 +75,10 @@ export default function SettingsPage() {
             <div className="flex-1 overflow-y-auto pb-10">
                 <div className="max-w-4xl mx-auto px-4 py-8">
                     {/* Tabs */}
-                    <div className="flex gap-4 mb-8 border-b border-[var(--border)] pb-4">
+                    <div style={{ paddingLeft: 8, marginBottom: 16 }} className="flex gap-4 mb-8 border-b border-[var(--border)] pb-4">
                         {(['profile', 'api', 'appearance'] as const).map((tab) => (
                             <button
+                                style={{cursor:"pointer"}}
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
                                 className={`px-4 py-2 font-medium transition-colors border-b-2 ${activeTab === tab
@@ -92,22 +93,23 @@ export default function SettingsPage() {
 
                     {/* Profile Tab */}
                     {activeTab === 'profile' && (
-                        <div className="space-y-6">
+                        <div style={{ paddingLeft: 8 }} className="space-y-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-300 mb-2">Avatar</label>
                                 <div className="flex items-center gap-4">
-                                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-2xl font-bold text-white">
+                                    <div style={{ marginTop: 4, marginBottom: 4 }} className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-2xl font-bold text-white">
                                         AJ
                                     </div>
-                                    <button className="px-4 py-2 bg-[var(--card)] border border-[var(--border)] rounded-lg hover:bg-[var(--border)] transition-colors text-sm">
+                                    <button style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 4, paddingBottom: 4, cursor: 'pointer' }} className="px-4 py-2 bg-[var(--card)] border border-[var(--border)] rounded-lg hover:bg-[var(--border)] transition-colors text-sm">
                                         Change Avatar
                                     </button>
                                 </div>
                             </div>
 
-                            <div>
+                            <div style={{ marginBottom: 8 }}>
                                 <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
                                 <input
+                                    style={{marginTop:4,paddingLeft: 8, paddingRight: 8, paddingTop: 4, paddingBottom: 4 }}
                                     type="text"
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -115,9 +117,10 @@ export default function SettingsPage() {
                                 />
                             </div>
 
-                            <div>
+                            <div style={{ marginBottom: 8 }}>
                                 <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
                                 <input
+                                    style={{marginTop:4,paddingLeft: 8, paddingRight: 8, paddingTop: 4, paddingBottom: 4 }}
                                     type="email"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -125,7 +128,7 @@ export default function SettingsPage() {
                                 />
                             </div>
 
-                            <button className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-purple-500/20 text-white">
+                            <button style={{paddingLeft:7,paddingRight:9,paddingTop:4,paddingBottom:4,cursor:"pointer"}} className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-purple-500/20 text-white">
                                 <Save className="w-4 h-4" />
                                 Save Changes
                             </button>
@@ -134,11 +137,12 @@ export default function SettingsPage() {
 
                     {/* API Keys Tab */}
                     {activeTab === 'api' && (
-                        <div className="space-y-6">
+                        <div style={{marginLeft:8}} className="space-y-6">
                             <div>
                                 <h3 className="text-lg font-semibold text-white mb-4">Add New API Key</h3>
                                 <div className="flex gap-2 mb-6">
                                     <input
+                                    style={{marginTop:4,paddingLeft: 8, paddingRight: 8, paddingTop: 4, paddingBottom: 4 }}
                                         type="text"
                                         placeholder="Key name (e.g., Production API)"
                                         value={newKeyName}
@@ -146,6 +150,7 @@ export default function SettingsPage() {
                                         className="flex-1 px-4 py-2 bg-[var(--card)] border border-[var(--border)] rounded-lg text-white placeholder-gray-500 focus:border-[var(--primary)] focus:outline-none transition-colors"
                                     />
                                     <button
+                                    style={{paddingLeft:6,paddingRight:6,cursor:"pointer"}}
                                         onClick={handleAddApiKey}
                                         className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-purple-500/20 text-white"
                                     >
@@ -155,10 +160,11 @@ export default function SettingsPage() {
                             </div>
 
                             <div>
-                                <h3 className="text-lg font-semibold text-white mb-4">Your API Keys</h3>
+                                <h3 style={{marginBottom:4,marginTop:6}} className="text-lg font-semibold text-white mb-4">Your API Keys</h3>
                                 <div className="space-y-3">
                                     {apiKeys.map((apiKey) => (
                                         <div
+                                            style={{paddingLeft:8,paddingRight:8,paddingTop:4,paddingBottom:4,marginBottom:8}}
                                             key={apiKey.id}
                                             className="flex items-center justify-between p-4 bg-[var(--card)] border border-[var(--border)] rounded-lg"
                                         >
@@ -201,11 +207,11 @@ export default function SettingsPage() {
 
                     {/* Appearance Tab */}
                     {activeTab === 'appearance' && (
-                        <div className="space-y-6 max-w-2xl">
+                        <div style={{marginLeft:8}} className="space-y-6 max-w-2xl">
                             <div>
                                 <h3 className="text-lg font-semibold text-white mb-4">Theme</h3>
-                                <div className="flex items-center gap-4 p-4 bg-[var(--card)] border border-[var(--border)] rounded-lg">
-                                    <div>
+                                <div style={{marginBottom:8}} className="flex items-center gap-4 p-4 bg-[var(--card)] border border-[var(--border)] rounded-lg">
+                                    <div style={{paddingLeft:4,paddingRight:4,paddingTop:4,paddingBottom:4}}>
                                         <p className="text-white font-medium mb-1">Dark Mode</p>
                                         <p className="text-sm text-gray-400">Currently: {darkMode ? 'Enabled' : 'Disabled'}</p>
                                     </div>
@@ -235,11 +241,12 @@ export default function SettingsPage() {
                                 </div>
                             </div>
 
-                            <div>
+                            <div style={{marginTop:8}}>
                                 <label className="block text-sm font-medium text-gray-300 mb-3">Density</label>
                                 <div className="space-y-2">
                                     {(['compact', 'comfortable'] as const).map((d) => (
                                         <button
+                                        style={{marginTop:4,paddingLeft: 8, paddingRight: 8, paddingTop: 4, paddingBottom: 4, cursor: 'pointer' }}
                                             key={d}
                                             onClick={() => setDensity(d)}
                                             className={`w-full text-left px-4 py-3 rounded-lg border transition-colors ${density === d
