@@ -8,6 +8,8 @@ import { Sparkles, Bot, User } from 'lucide-react';
 import { useSidebar } from '@/context/SidebarContext';
 
 
+
+
 const sampleMessages = [
     {
         role: 'user' as const,
