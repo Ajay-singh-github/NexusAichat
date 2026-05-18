@@ -4,6 +4,7 @@ A modern, feature-rich AI chat application built with Next.js 14, React 19, Type
 
 ## 🚀 Quick Start
 
+
 ```bash
 # Install dependencies
 npm install
